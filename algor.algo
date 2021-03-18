@@ -1,0 +1,162 @@
+ALGORITHM arraytest
+VAR
+ sum,l=j,i:INTEGER;
+  tab1,tab2:ARRAY_OF INTEGER[6];
+  tab3:ARRAY_OF INTEGER[12]  
+   
+BEGIN
+   FOR i FROM 0 TO tab1.length STEP 1  DO
+   found=  FALSE;
+   FOR J FROM 0 TO tab2.length STEP 1  DO
+   
+   
+       IF (tab1[i] <> tab2[J]) THEN
+       found= TRUE ;
+          
+       END_IF
+   END_FOR
+   IF (NOT found) THEN
+     sum:= sum+tab1[i]
+   END_IF
+   END_FOR
+
+   
+   
+END
+
+
+
+///////hash table----/////----find the sum of all distinct elements from the set
+
+
+ALGORITHM hashtable1
+
+VAR
+ tab1,tab2: ARRAY_OF INTEGER[30];
+ tab3:ARRAY_OF INTEGER[30]
+ cct,sum,i:INTEGER;
+  htab:   HASH_TABLE<INTEGER,INTEGER>
+
+BEGIN
+  
+
+
+FOR i FROM 0 TO tab1.length -1 STEP 1  DO
+    
+
+   IF (htab.lookup(tab2[i])= TRUE) THEN
+          CCT:= htab.get(tab1[i])
+          htab.insert(tab1[i]),cct +1)
+          ELSE 
+          htab.insert(tab1[i],i)
+
+      
+   END_IF
+
+END_FOR
+
+FOR i FROM 0 TO tab1.length -1 STEP 1  DO
+    
+
+   IF (htab.lookup(tab2[i])= TRUE) THEN
+          cct:= htab.get(tab2[i])
+          htab.insert(tab2[i]),cct +1)
+          ELSE 
+          htab.insert(tab2[i],i)
+
+   END_IF
+END_FOR
+
+ tab3:=htab.getkeys()
+ FOR i FROM 0 TO tab3.length -1 STEP 1  DO
+    IF (htab.get(tab3[i])=1) THEN
+    sum= sum+ tab3[i]
+      
+    END_IF
+ END_FOR
+
+END
+
+
+////--------problem2------///print the sum of overlapping elements in two sets
+
+
+ALGORITHM problem2
+
+ALGORITHM arraytest
+VAR
+ sum,l=j,i:INTEGER;
+  tab1,tab2:ARRAY_OF INTEGER[6];
+  tab3:ARRAY_OF INTEGER[12]  
+   
+BEGIN
+   FOR i FROM 0 TO tab1.length STEP 1  DO
+   found=  FALSE;
+   FOR J FROM 0 TO tab2.length STEP 1  DO
+   
+   
+       IF (tab1[i] == tab2[J]) THEN
+       found= TRUE ;
+          
+       END_IF
+   END_FOR
+   IF (NOT found) THEN
+     sum:= sum+tab1[i]
+   END_IF
+   END_FOR
+
+   
+   
+END
+
+
+////-----problem2 en htable////
+
+
+ALGORITHM hashtable1
+
+VAR
+ tab1,tab2: ARRAY_OF INTEGER[30];
+ tab3:ARRAY_OF INTEGER[30]
+ cct,sum,i:INTEGER;
+  htab:   HASH_TABLE<INTEGER,INTEGER>
+
+BEGIN
+  
+
+
+FOR i FROM 0 TO tab1.length -1 STEP 1  DO
+    
+
+   IF (htab.lookup(tab2[i])= TRUE) THEN
+          CCT:= htab.get(tab1[i])
+          htab.insert(tab1[i]),cct +1)
+          ELSE 
+          htab.insert(tab1[i],i)
+
+      
+   END_IF
+
+END_FOR
+
+FOR i FROM 0 TO tab1.length -1 STEP 1  DO
+    
+
+   IF (htab.lookup(tab2[i])= TRUE) THEN
+          cct:= htab.get(tab2[i])
+          htab.insert(tab2[i]),cct +1)
+          ELSE 
+          htab.insert(tab2[i],i)
+
+   END_IF
+END_FOR
+
+ tab3:=htab.getkeys()
+ FOR i FROM 0 TO tab3.length -1 STEP 1  DO
+    IF (htab.get(tab3[i])>1) THEN
+    sum= sum+ tab3[i]
+       
+    END_IF
+ END_FOR
+
+END
